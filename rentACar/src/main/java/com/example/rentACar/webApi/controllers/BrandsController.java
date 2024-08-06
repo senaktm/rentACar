@@ -21,6 +21,7 @@ import com.example.rentACar.business.responses.GetAllBrandsResponse;
 import com.example.rentACar.business.responses.GetByIdBrandResponse;
 import com.example.rentACar.entities.concretes.Brand;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -44,7 +45,7 @@ public class BrandsController {
 
 	@PostMapping()
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public void add(@RequestBody CreateBrandRequest createBrandRequest) {
+	public void add(@RequestBody @Valid() CreateBrandRequest createBrandRequest) {
 		this._brandService.add(createBrandRequest);
 	}
 	
